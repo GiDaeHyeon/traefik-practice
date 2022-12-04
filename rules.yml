@@ -1,0 +1,10 @@
+http:
+  routers:
+    route1:
+      - web
+    rule: Host(`dh-home.iptime.org`) && PathPrefix(`/toy`)
+    service: reverse-proxy
+  
+  services:
+    reverse-proxy:
+      

@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  reverse-proxy:
+    image: traefik:v2.9
+    command:
+      - --api.insecure=true
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.web.address=:5001
+      - --providers.file=true
+      - --providers.file.filename=etc/traefik/rules.yml
+    ports:
+      - "80:80"
+      - "443:443"
+      - "5005:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./rules.yml:/etc/traefik/rules.yml:ro
+  
+  whoami:
+    image: traefik/whoami
+    labels:
+      - "traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)"
