@@ -57,7 +57,6 @@ def refresh(data: schema.CheckToken, db: Session = Depends(get_db)):
 def log_out(request: Request, db: Session = Depends(get_db)):
     token = request.headers.get("Authorization", "")
     payload = auth_service.check_access_token(token=token)
-    print(payload)
     if payload and auth_service.delete_refresh_token(db=db, payload=payload):
         return {"detail": "ok"}
     raise HTTPException(
