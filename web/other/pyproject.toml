@@ -1,12 +1,14 @@
 [tool.poetry]
-name = "auth"
+name = "other"
 version = "0.1.0"
 description = ""
 authors = ["GiDaeHyeon <spliter2157@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
+fastapi = "^0.88.0"
+uvicorn = "^0.20.0"
 
 
 [build-system]

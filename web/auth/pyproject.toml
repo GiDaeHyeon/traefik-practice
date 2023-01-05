@@ -9,6 +9,11 @@ readme = "README.md"
 python = "^3.8"
 fastapi = "^0.88.0"
 uvicorn = "^0.20.0"
+sqlalchemy = "^1.4.45"
+psycopg2-binary = "^2.9.5"
+pydantic = {extras = ["email"], version = "^1.10.4"}
+bcrypt = "^4.0.1"
+pyjwt = "^2.6.0"
 
 
 [build-system]
